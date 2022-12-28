@@ -9,7 +9,6 @@ class Game extends React.Component {
     };
   }
   handleClick(i) {
-    console.log(`THIS  = ${this}`);
     let newState = JSON.parse(
       JSON.stringify(this.state.history[this.state.history.length - 1])
     );
@@ -25,9 +24,6 @@ class Game extends React.Component {
   }
 
   render() {
-    console.log(
-      `Squares = ${this.state.history[this.state.history.length - 1].squares}`
-    );
     const winner = calculateWinner(
       this.state.history[this.state.history.length - 1].squares
     );
