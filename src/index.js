@@ -64,7 +64,7 @@ class Board extends React.Component {
     const winner = this.calculateWinner();
     let status;
     if (winner) {
-      status = "Winner" + winner;
+      status = "Winner " + winner;
     } else {
       status = this.state.isX ? "Next player: X" : "Next player: O";
     }
