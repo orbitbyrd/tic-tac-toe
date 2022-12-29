@@ -23,6 +23,11 @@ class Game extends React.Component {
     this.setState({ history: history });
   }
 
+  timeTravel(index) {
+    console.log(`INDEX = ${index}`);
+    this.setState({ history: this.state.history.slice(0, index + 1) });
+  }
+
   render() {
     const winner = calculateWinner(
       this.state.history[this.state.history.length - 1].squares
@@ -36,6 +41,18 @@ class Game extends React.Component {
         : "Next player: O";
     }
 
+    const listItems = this.state.history.map((elem, index) => {
+      return (
+        <li key={index.toString()}>
+          <button onClick={() => this.timeTravel(index)}>
+            Go to move #{index}
+          </button>
+        </li>
+      );
+    });
+
+    console.log(`LIST ITEMS = ${listItems}`);
+
     return (
       <div className="game">
         <div className="game-board">
@@ -46,7 +63,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{/* TODO */}</ol>
+          <ol>{listItems}</ol>
         </div>
       </div>
     );

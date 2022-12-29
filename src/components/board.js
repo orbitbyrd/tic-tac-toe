@@ -2,6 +2,8 @@ import React from "react";
 import Square from "./square";
 
 export default function Board(props) {
+  console.log(`SQUARES = ${props.squares}`);
+
   return (
     <div>
       <div className="board-row">
